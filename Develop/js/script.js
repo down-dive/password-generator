@@ -24,12 +24,16 @@ var promptCase1 = function() {
    LowerCase = window.confirm("Would you like your password to include lower case characters?");
   if (LowerCase) {
     LowerCase = passwordVariations.lowerCase;
-    return promptCase2();
+    return promptCase2 
   } else {
      LowerCase = passwordVariations.noLowerCase;
      return promptCase2();
+     
+     
+
   }
 }
+   
 
 
 var promptCase2 = function() {
