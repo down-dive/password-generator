@@ -13,89 +13,102 @@ passwordVariations = {
   specialCharacters: "!@#$%^&*()_+=-",
   noSpecialCharacters: ""
 }
-
-
+var LowerCase = "1";
+var UpperCase = "2";
+var Numbers = "3";
+var SpecialCharacters = "4";
+var promptLenght = "";
 
 // I choose lowercase, uppercase, numeric, and/or special characters
 var promptCase1 = function() {
-  var LowerCase = window.confirm("Would you like your password to include lower case characters?");
+   LowerCase = window.confirm("Would you like your password to include lower case characters?");
   if (LowerCase) {
-    LowerCase = passwordVariations["lowerCase"];
-    console.log(LowerCase)
-    promptCase2()
+    LowerCase = passwordVariations.lowerCase;
+    return promptCase2();
   } else {
-     LowerCase = passwordVariations["noLowerCase"];
-     console.log(LowerCase)
-     promptCase2()
+     LowerCase = passwordVariations.noLowerCase;
+     return promptCase2();
   }
 }
 
+
 var promptCase2 = function() {
-  var UpperCase = window.confirm("Would you like your password to include upper case characters?");
+   UpperCase = window.confirm("Would you like your password to include upper case characters?");
   if (UpperCase) {
     UpperCase = passwordVariations["upperCase"];
-    console.log(UpperCase)
-    promptCase3()
+    return promptCase3()
     
   } else {
      UpperCase = passwordVariations["noUpperCase"];
-     console.log(UpperCase)
-     promptCase3()
+     return promptCase3()
   }
 }
 
 var promptCase3 = function() {
-  var Numbers = window.confirm("Would you like your password to include numbers?");
+   Numbers = window.confirm("Would you like your password to include numbers?");
   if (Numbers) {
     Numbers = passwordVariations["numbers"];
-    console.log(Numbers)
-    promptCase4()
+     return promptCase4()
     
   } else {
      Numbers = passwordVariations["noNumbers"];
-     console.log(Numbers)
-     promptCase4()
+      return promptCase4()
   }
 }
 
 var promptCase4 = function() {
-  var SpecialCharacters = window.confirm("Would you like your password to include special characters?");
+  SpecialCharacters = window.confirm("Would you like your password to include special characters?");
   if (SpecialCharacters) {
     SpecialCharacters = passwordVariations["specialCharacters"];
-    console.log(SpecialCharacters)
     
   } else {
      SpecialCharacters= passwordVariations["noSpecialCharacters"];
-     console.log(SpecialCharacters)
+     return Nocharacters();
   }
 }
-
-// GIVEN I need a new, secure password
+// the end of character selection
 
 // my input should be validated and at least one character type should be selected
-
-// a password is generated that matches the selected criteria
-// for (var i = 0; i < 5; i++) i should be equial to promptLenght
-// text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-// return text;
+var Nocharacters = function() {
+  if ( LowerCase === passwordVariations["noLowerCase"] || UpperCase === passwordVariations["noUpperCase"] || Numbers === passwordVariations["noNumbers"] || SpecialCharacters === passwordVariations["noSpecialCharacters"]) {
+    window.alert("You have to select at least one character type for your password!");
+    return promptCase1()
+  } else {
+    return password();
+  }
+}
 
 // the password is either displayed in an alert or written to the page
 
 // I choose a length of at least 8 characters and no more than 128 characters
-
 var LenghtOfPassword = function() {
-  var promptLenght = window.prompt("How many characters would you like your password to have?");
+  promptLenght = window.prompt("How many characters would you like your password to have?");
   if (promptLenght < 8) {
-    window.alert("Your password should have at lease 8 characters")
+    window.alert("Your password should have at least 8 characters")
     return LenghtOfPassword();
   } else if (promptLenght > 128) {
     window.alert("Your password should have less than 128 characters")
     return LenghtOfPassword();
   } else {
     promptCase1()
+    console.log(LowerCase)
+    console.log(UpperCase)
   }
 }
+console.log(promptLenght)
+
+
+// a password is generated that matches the selected criteria
+var password = function() {
+  var text = ""
+  var allCharacters = LowerCase + UpperCase + Numbers + SpecialCharacters;
+for (var i = 0 ;i < LenghtOfPassword(); i++) 
+text += allCharacters.charAt(Math.floor(Math.random() * allCharacters.length));
+
+return text
+
+}
+console.log(password());
 
 // function for prompt to gererate code or not
 var generateOrNot = function() {
