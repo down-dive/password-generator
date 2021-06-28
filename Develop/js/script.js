@@ -23,14 +23,11 @@
   }
 var passwordLength = LenghtOfPassword()
 
-
 var LowerCaseQ = confirm("Do you want to include lower case letters")
 var UpperCaseQ = confirm("Do you want Upper case letters")
 var NumbersQ = confirm("Do you want to include numbers?")
 var SpecialCharactersQ = confirm("Do you want to include special characters?")
 var passOption = [];
-
-
 
 if (LowerCaseQ == true) {
   passOption+= lowerCase;
@@ -48,8 +45,6 @@ if (SpecialCharactersQ == true) {
   passOption+= specialCharacters
 };
 
-
-
 function passwords() {
   var text = "";
   var allCharacters = passOption;
@@ -59,10 +54,6 @@ function passwords() {
 
   return text;
 }
-
-// alert("Your password: " + password());
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
