@@ -3,7 +3,7 @@
 ## Introduction
 This is a project that creates a random password based on the selection of characters that can be added.
 
-## Desctibtion
+## Describtion
  Selections can be such as lower case letters, upper case letters, numbers and special characters. Also lenth of the password needs to be chosen. Password should be longer than 8 characters but shorter than 128.
 
 ## Purpose
