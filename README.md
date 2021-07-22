@@ -62,7 +62,7 @@ https://down-dive.github.io/password-generator/
 ## Screenshot
 Here is the snapshot of the website:
 
-![alt="password-generator"](./Develop/assets/images/password-generator.png)
+![alt="password-generator"](./Develop/assets/images/password-generator.jpn)
 
 
 ## Questions
